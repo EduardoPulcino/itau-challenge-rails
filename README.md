@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto consiste em um [desafio](https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior) proposto para uma vaga de desenvolvedor do banco Itaú. 
 
-Things you may want to cover:
+Para rodar o projeto é necessário:
 
-* Ruby version
+* Ruby 3.3.7
+* Rails 8.0.1
+* NodeJS
+* Yarn
 
-* System dependencies
+Após clonar o repositório, acesse o diretório raíz do projeto em um terminal e rode os comandos:
 
-* Configuration
+`bundle install`
 
-* Database creation
+`yarn install`
 
-* Database initialization
+Para configurar o banco de dados, rode:
 
-* How to run the test suite
+`rails db:create`
 
-* Services (job queues, cache servers, search engines, etc.)
+`rails db:migrate`
 
-* Deployment instructions
+E levante o servidor:
 
-* ...
+`rails server`
+
+Para criar uma `transaction`, faça um POST para a URI `/transactions`. O `body` do post deve conter `value` e `transaction_time`. Exemplo:
+
+```json
+{
+	"value": 90.00,
+	"transaction_time": "2025-03-06T18:08:59Z"
+}
+```
+
+Para acessar as estatísticas, faça um GET para a URI `/statistics`. Caso queira passar um intervalo de tempo personalizado, a URI deve ser `statistics?time_interval=10000000`, por exemplo.
